@@ -71,13 +71,43 @@ exports.BST = class {
           return result = true;
         }
         if (result === false) {
-          if(bst.left) _traverse(bst.left)
+          if(bst.left) _traverse(bst.left);
           if(bst.right) _traverse(bst.right);
         }
       }
-      
+
       return result;
     }
 
+    findMax(bst) {
+      if(!bst) {
+        return 'data required';
+      }
+      if(bst.right) {
+        return this.findMax(bst.right);
+      }
+      return bst.val;
+    }
+
+    findMin(bst) {
+      if(!bst) {
+        return 'data required';
+      }
+      if(bst.left) {
+        return this.findMin(bst.left);
+      }
+      return bst.value;
+    }
+
+
+    //TODO finish shit
+    calcHeight(bst) { 
+      if(!node) return 0;
+      var leftHeight = height(bst.left);
+      var rightHeight = height(bst.right);
+
+      return Math.max(leftHeight, rightHeight) + 1;
+
+    }
 
 }
